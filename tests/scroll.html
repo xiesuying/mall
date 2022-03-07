@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0"/>
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+      }
+      .nav-bar {
+          position: fixed;
+          height: 30px;
+          left: 0;
+          top: 0;
+          right: 0;
+          display: flex;
+          background: #fff;
+      }
+
+      .nav-bar > button {
+          text-align: center;
+          flex: 1;
+          line-height: 30px;
+      }
+
+      .content{
+        padding-top: 30px;
+      }
+  </style>
+</head>
+<body>
+<div class="nav-bar">
+  <button>a</button>
+  <button>b</button>
+  <button>c</button>
+  <button>d</button>
+</div>
+<div class="content">
+  <div class="a"></div>
+  <div class="b"></div>
+  <div class="c"></div>
+  <div class="d"></div>
+</div>
+</body>
+<script>
+  function initialize() {
+    ['a', 'b', 'c', 'd'].forEach(className => {
+      const element = document.getElementsByClassName(className)[0];
+      element.style.height = `${(Math.random() + 0.5) * 2000}px`;
+      element.style.background = '#' + Array.from({ length: 6 }, () => parseInt(Math.random() * 16).toString(16)).join('');
+    });
+  }
+
+  window.onload = function () {
+    initialize()
+  }
+</script>
+</html>
